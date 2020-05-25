@@ -1,6 +1,6 @@
 # PocketKnifeModule1-Kotlin1
 
-[![](https://jitci.com/gh/tompearson/PocketKnifeModule1-Kotlin1/svg)](https://jitci.com/gh/tompearson/PocketKnifeModule1-Kotlin1)
+[![](https://jitci.com/gh/tompearson/PocketKnifeModule/svg)](https://jitci.com/gh/tompearson/PocketKnifeModule)
 
 Import this module into a Android Project either an existing or new project
 
