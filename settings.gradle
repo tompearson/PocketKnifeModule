@@ -1,0 +1,2 @@
+include ':PockectKnifeModule1'
+rootProject.name='PocketKnifeModule1'
