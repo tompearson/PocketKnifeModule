@@ -44,7 +44,7 @@ In the resources (res) section in Android Studio
 
 ![activity_main.xml](./images/Resources_layout.png)
 
--- Edit the Layout named activity_main.xml file and add this line
+- Edit the Layout named activity_main.xml file and add this line
 
 ~~~
 <TextView
@@ -60,7 +60,7 @@ In the resources (res) section in Android Studio
 
 - Now build the project. There should be no errors.
 
-- Finally replace the code in Java/MainActivity.kt with the code [found here](https://github.com/tompearson/PocketKnifeApp1/blob/master/PocketKnifeApp1/src/main/java/com/example/PocketKnifeApp1/MainActivity.kt)
+- Finally replace the code in Java/MainActivity.kt with the code [found here](https://github.com/tompearson/PocketKnifeApplication/blob/master/PocketKnifeApp1-Kotlin1/src/main/java/com/example/PocketKnifeApplication/MainActivity.kt)
 
 - Build the project insuring there are no errors.
 
