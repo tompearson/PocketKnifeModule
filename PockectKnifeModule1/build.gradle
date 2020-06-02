@@ -1,5 +1,5 @@
-//apply plugin: 'com.android.application' // comment out after testing as application
-apply plugin: 'com.android.library' // set to library before sending to repository
+apply plugin: 'com.android.application' // comment out after testing as application
+//apply plugin: 'com.android.library' // set to library before sending to repository
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'com.github.dcendents.android-maven'
@@ -9,13 +9,49 @@ android {
     compileSdkVersion 29
     buildToolsVersion "29.0.2"
     defaultConfig {
-//        applicationId "com.example.pocketknifemodule1" // comment out after testing as application
+        applicationId "com.example.pocketknifemodule1" // comment out after testing as application
         minSdkVersion 16
         targetSdkVersion 29
 //        versionCode 1
         versionName androidGitVersion.name()
         versionCode androidGitVersion.code()
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        // Ready to load keys from app level folder in file store.properties
+        // Note: google_maps_key is the same value as places_api_key
+        def storeKeysFile = file('store.properties')
+        Properties storeProps = new Properties()
+        def google_maps_key_ = ""
+        def fabric_io_id_ = ""
+        def ad_id_ = ""
+        def banner_ad_unit_id_ = ""
+        def places_api_key_ = ""
+        if (storeKeysFile.canRead()) {
+            // Load keys (this file is intentionally out of the project space
+            storeProps.load(new FileInputStream(storeKeysFile))
+            google_maps_key_ = storeProps['google_maps_key'].toString()
+            fabric_io_id_ = storeProps['fabric_io_id'].toString()
+            ad_id_ = storeProps['ad_id'].toString()
+            banner_ad_unit_id_ = storeProps['banner_ad_unit_id'].toString()
+            places_api_key_ = storeProps['places_api_key'].toString()
+        } else {
+            throw new GradleException("Could not read storeKeysFile.properties!")
+        }
+//          resValue "string", "google_maps_key", (project.findProperty("GOOGLE_MAPS_API_KEY") ?: "") TPD look at this for future
+        manifestPlaceholders = [fabric_io_id     : "${fabric_io_id_}",
+                                ad_id            : "${ad_id_}",
+                                banner_ad_unit_id: "${banner_ad_unit_id_}",
+                                google_maps_key  : "${google_maps_key_}",
+                                places_api_key   : "${places_api_key_}"]
+//Good read on hiding keys https://rammic.github.io/2015/07/28/hiding-secrets-in-android-apps/
+// https://www.reddit.com/r/androiddev/comments/3dedaj/dear_android_developer_this_is_an_intervention/
+// https://stackoverflow.com/questions/54225567/what-is-the-android-studio-way-of-storing-configurations-key-value-pairs-for-te/54229977#54229977
+        buildConfigField "String", "google_maps_key", "\"${google_maps_key_}\""
+        buildConfigField "String", "banner_ad_unit_id", "\"${banner_ad_unit_id_}\""
+        buildConfigField "String", "fabric_io_id", "\"${fabric_io_id_}\""
+        buildConfigField "String", "ad_id", "\"${ad_id_}\""
+        buildConfigField "String", "places_api_key", "\"${places_api_key_}\""
+// Home latlng 45.509941, -122.929887
+
     }
     buildTypes {
         release {
@@ -36,6 +72,9 @@ dependencies {
     testImplementation 'junit:junit:4.13'
     implementation 'com.github.quickpermissions:quickpermissions-kotlin:0.4.0'
 
+//    Maps feature
+    implementation 'com.google.android.gms:play-services-maps:17.0.0'
+    implementation 'com.google.android.libraries.places:places:2.1.0'
 
 
 }
