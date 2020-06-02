@@ -79,7 +79,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback,
         val placeFields = Collections.singletonList(Place.Field.NAME)
 
 // Use the builder to create a FindCurrentPlaceRequest.
-        val placerequest = FindCurrentPlaceRequest.newInstance(placeFields)
+//        val placerequest = FindCurrentPlaceRequest.newInstance(placeFields)    never used
 
 
         val fetchPlaceRequest = FetchPlaceRequest.builder(places_api_key, placeFields)
@@ -90,8 +90,8 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback,
             place = response.place
         }.addOnFailureListener { exception ->
             if (exception is ApiException) {
-                val statusCode =
-                    exception.statusCode // TDO Status{statusCode=This IP, site or mobile application is not authorized to use this API key. Request received from IP address 50.53.164.11, with empty referer, resolution=null}
+//                val statusCode =
+            //        exception.statusCode // TDO Status{statusCode=This IP, site or mobile application is not authorized to use this API key. Request received from IP address 50.53.164.11, with empty referer, resolution=null}
                 // Handle error with given status code.
             }
         }
@@ -144,8 +144,8 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback,
 //        MAP_TYPE_SATELLITE = 2;
 //        MAP_TYPE_TERRAIN = 3;
 //        MAP_TYPE_HYBRID = 4;
-        mMap?.setMapType(GoogleMap.MAP_TYPE_SATELLITE)
-        mMap?.getUiSettings()?.apply {
+        mMap.setMapType(GoogleMap.MAP_TYPE_SATELLITE)
+        mMap.getUiSettings()?.apply {
             isZoomControlsEnabled = false
             isCompassEnabled = true
             isMyLocationButtonEnabled = true
@@ -213,13 +213,13 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback,
     }
 
     private fun assignToMap() {
-        mMap?.clear()
+        mMap.clear()
         latLng = LatLng(mLastKnownLocation!!.getLatitude(), mLastKnownLocation!!.getLongitude())
 
         val options = MarkerOptions()
-            .position(latLng!!)
+            .position(latLng)
             .title("My Location")
-        mMap?.apply {
+        mMap.apply {
             addMarker(options)
             moveCamera(CameraUpdateFactory.newLatLng(latLng))
             animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 15f))
