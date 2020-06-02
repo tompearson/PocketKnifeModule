@@ -1,6 +1,7 @@
 # PocketKnifeModule1-Kotlin1
 
 [![](https://jitci.com/gh/tompearson/PocketKnifeModule/svg)](https://jitci.com/gh/tompearson/PocketKnifeModule)
+[![Build status](https://build.appcenter.ms/v0.1/apps/6913fed6-37ec-4dca-8c4f-a02ec97b0371/branches/dev/badge)](https://appcenter.ms)
 
 Import this module into a Android Project either an existing or new project
 
