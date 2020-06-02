@@ -7,6 +7,10 @@ import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.microsoft.appcenter.AppCenter
+import com.microsoft.appcenter.analytics.Analytics
+import com.microsoft.appcenter.crashes.Crashes;
+import com.microsoft.appcenter.distribute.Distribute;
 
 class MainActivity : AppCompatActivity() {
 
@@ -24,6 +28,11 @@ class MainActivity : AppCompatActivity() {
         textMessage = findViewById(R.id.message)
         textMessage.setTextColor(Color.BLACK)
         textMessage.setText("")//clear screen
+
+        AppCenter.start(
+            application, "a0d1200a-73c9-4154-87ce-031ec875e3e6",
+            Analytics::class.java, Crashes::class.java, Distribute::class.java
+        )
 
         methodWithPermissions(this)
 
