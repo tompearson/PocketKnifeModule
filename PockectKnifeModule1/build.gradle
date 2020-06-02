@@ -61,6 +61,11 @@ dependencies {
     testImplementation 'junit:junit:4.13'
     implementation 'com.github.quickpermissions:quickpermissions-kotlin:0.4.0'
 
+//    App Center
+    def appCenterSdkVersion = '2.5.1'
+    implementation "com.microsoft.appcenter:appcenter-analytics:${appCenterSdkVersion}"
+    implementation "com.microsoft.appcenter:appcenter-crashes:${appCenterSdkVersion}"
+    implementation "com.microsoft.appcenter:appcenter-distribute:${appCenterSdkVersion}"
 //    Maps feature
     implementation 'com.google.android.gms:play-services-maps:17.0.0'
     implementation 'com.google.android.libraries.places:places:2.1.0'
