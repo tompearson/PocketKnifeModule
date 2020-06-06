@@ -1,6 +1,5 @@
 # PocketKnifeModule1-Kotlin1 RELEASE.md
 
-[![](https://jitci.com/gh/tompearson/PocketKnifeModule/svg)](https://jitci.com/gh/tompearson/PocketKnifeModule)
 
 ## Update Version Code for
 

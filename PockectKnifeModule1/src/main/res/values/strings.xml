@@ -14,4 +14,8 @@
     <string name="bluetooth">\nBluetooth enabled</string>
     <string name="no_bluetooth">\nBluetooth disabled</string>
 
+<!--    Maps feature-->
+    <string name="title_activity_maps">Map</string>
+    <string name="button_map_text">Map</string>
+
 </resources>

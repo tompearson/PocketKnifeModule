@@ -32,6 +32,7 @@ val textMessage = StringBuilder()
 
 fun methodWithPermissions(mythis: Context) = mythis.runWithPermissions(Manifest.permission.ACCESS_FINE_LOCATION) {
     // Do the stuff with permissions safely
+    // TODO fix the asynchronicity of this so that it blocks until permission is granted
     toast = Toast.makeText(mythis, mythis.getString(R.string.loc_granted), Toast.LENGTH_LONG)
 
     toast.show()
@@ -140,7 +141,7 @@ fun getNetworkStatus(mythis: Context): String {
         } else if (activeNetwork?.type == ConnectivityManager.TYPE_WIFI) {
 
             val wifiMgr: WifiManager =
-                mActivity.getSystemService(Context.WIFI_SERVICE) as WifiManager// TODO look at comiler warning here
+                mActivity.getSystemService(Context.WIFI_SERVICE) as WifiManager
             val wifiInfo = wifiMgr.connectionInfo
 
 //                In the connected state, access to the SSID and BSSID requires
