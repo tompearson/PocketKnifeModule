@@ -43,10 +43,10 @@ class MainActivity : AppCompatActivity() {
 
 //        Map feature
 
-        button.setOnClickListener({ v ->
+        button.setOnClickListener {
             val intent: Intent = Intent(this, MapsActivity::class.java).apply {}
             startActivity(intent)
-        })
+        }
 
 
     }
