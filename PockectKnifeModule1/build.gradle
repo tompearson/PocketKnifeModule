@@ -7,7 +7,7 @@ group = 'com.github.tompearson'
 
 android {
     compileSdkVersion 29
-    buildToolsVersion "29.0.2"
+    buildToolsVersion "29.0.3"
     defaultConfig {
         applicationId "com.example.pocketknifemodule1" // comment out after testing as application
         minSdkVersion 16
@@ -63,7 +63,7 @@ dependencies {
     implementation "com.microsoft.appcenter:appcenter-distribute:${appCenterSdkVersion}"
 //    Maps feature
     implementation 'com.google.android.gms:play-services-maps:17.0.0'
-    implementation 'com.google.android.libraries.places:places:2.1.0'
+    implementation 'com.google.android.libraries.places:places:2.3.0'
 
 
 }
