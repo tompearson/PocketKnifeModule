@@ -41,9 +41,13 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+//            signingConfig signingConfigs.config
+        }
+        debug {
+            debuggable true
         }
     }
-}
+  }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
