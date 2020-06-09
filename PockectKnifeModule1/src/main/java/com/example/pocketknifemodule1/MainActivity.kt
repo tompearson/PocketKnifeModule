@@ -11,6 +11,7 @@ import com.microsoft.appcenter.AppCenter
 import com.microsoft.appcenter.analytics.Analytics
 import com.microsoft.appcenter.crashes.Crashes;
 import com.microsoft.appcenter.distribute.Distribute;
+import com.microsoft.appcenter.utils.async.AppCenterConsumer
 
 class MainActivity : AppCompatActivity() {
 
@@ -33,6 +34,13 @@ class MainActivity : AppCompatActivity() {
             application, "a0d1200a-73c9-4154-87ce-031ec875e3e6",
             Analytics::class.java, Crashes::class.java, Distribute::class.java
         )
+
+        val future = Crashes.hasCrashedInLastSession()
+        future.thenAccept(AppCenterConsumer {
+            if(it){
+                Toast.makeText(this, "Oops! Sorry about that crash!", Toast.LENGTH_LONG).show()
+            }
+        })
 
         methodWithPermissions(this)
 
