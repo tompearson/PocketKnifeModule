@@ -42,6 +42,7 @@ class MainActivity : AppCompatActivity() {
                 Toast.makeText(this, "Oops! Sorry about that crash!", Toast.LENGTH_LONG).show()
             }
         })
+
         methodWithPermissions(this)
 
         textMessage.setText(getNetworkStatus(this))
@@ -52,7 +53,9 @@ class MainActivity : AppCompatActivity() {
 //        Map feature
 
         button.setOnClickListener {
+
              Crashes.generateTestCrash()
+
             val intent: Intent = Intent(this, MapsActivity::class.java).apply {}
             startActivity(intent)
         }
