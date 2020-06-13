@@ -54,7 +54,7 @@ class MainActivity : AppCompatActivity() {
 
         button.setOnClickListener {
 
-             Crashes.generateTestCrash()
+//             Crashes.generateTestCrash()
 
             val intent: Intent = Intent(this, MapsActivity::class.java).apply {}
             startActivity(intent)
