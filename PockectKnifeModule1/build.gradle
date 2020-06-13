@@ -7,7 +7,7 @@ group = 'com.github.tompearson'
 
 android {
     signingConfigs {
-        config {
+        release {
             storeFile file('kotlin.jks')
             storePassword 'oscardog'
             keyAlias = 'pocketknife'
@@ -17,7 +17,7 @@ android {
     compileSdkVersion 29
     buildToolsVersion "29.0.3"
     defaultConfig {
-        applicationId "com.example.pocketknifemodule1" // comment out after testing as application
+        applicationId 'com.example.pocketknifemodule1' // comment out after testing as application
         minSdkVersion 16
         targetSdkVersion 29
 //        versionCode 1
@@ -45,14 +45,20 @@ android {
         buildConfigField "String", "google_maps_key", "\"${google_maps_key_}\""
         buildConfigField "String", "places_api_key", "\"${places_api_key_}\""
     }
+    def theAppName = "PocketKnife"
+
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-//            signingConfig signingConfigs.config
+            manifestPlaceholders = [appName: "${theAppName} release"]
+
+            signingConfig signingConfigs.release
         }
         debug {
             debuggable true
+            manifestPlaceholders = [appName: "${theAppName} debug"]
+            signingConfig signingConfigs.debug
         }
     }
   }
