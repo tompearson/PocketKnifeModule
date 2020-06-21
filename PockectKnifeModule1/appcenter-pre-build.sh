@@ -4,7 +4,7 @@ then
     exit
 fi
 
-ANDROID_GRADLE_FILE=$APPCENTER_SOURCE_DIRECTORY/PocketKnifeModule/build.gradle
+ANDROID_GRADLE_FILE=$APPCENTER_SOURCE_DIRECTORY/PocketKnifeModule1/build.gradle
 
 if [ -e "$ANDROID_GRADLE_FILE" ]
 then
