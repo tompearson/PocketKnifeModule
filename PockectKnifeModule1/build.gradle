@@ -20,7 +20,8 @@ android {
         applicationId 'com.example.pocketknifemodule1' // comment out after testing as application
         minSdkVersion 16
         targetSdkVersion 29
-//        versionCode 1
+        versionCode 1
+        versionName "1.0"
         versionName androidGitVersion.name()
         versionCode androidGitVersion.code()
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
