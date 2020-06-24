@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 if [ -z "$VERSION_NAME" ]
 then
     echo "You need to define the VERSION_NAME variable in App Center Tom"
