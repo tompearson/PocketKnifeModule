@@ -14,6 +14,7 @@ import android.telephony.TelephonyManager
 import android.text.format.Formatter
 import android.widget.Toast
 import com.livinglifetechway.quickpermissions_kotlin.runWithPermissions
+import com.scottyab.rootbeer.RootBeer
 import java.net.NetworkInterface
 import java.util.*
 
@@ -26,17 +27,29 @@ internal var mIP_address: String? = null
 lateinit var toast: Toast
 
 
-
 val textMessage = StringBuilder()
 
 
-fun methodWithPermissions(mythis: Context) = mythis.runWithPermissions(Manifest.permission.ACCESS_FINE_LOCATION) {
-    // Do the stuff with permissions safely
-    // TODO fix the asynchronicity of this so that it blocks until permission is granted
-    toast = Toast.makeText(mythis, mythis.getString(R.string.loc_granted), Toast.LENGTH_LONG)
+fun methodWithPermissions(mythis: Context) =
+    mythis.runWithPermissions(Manifest.permission.ACCESS_FINE_LOCATION) {
+        // Do the stuff with permissions safely
+        // TODO fix the asynchronicity of this so that it blocks until permission is granted
+        toast = Toast.makeText(mythis, mythis.getString(R.string.loc_granted), Toast.LENGTH_LONG)
+        toast.show()
+    }
 
-    toast.show()
-
+fun isItRooted(mythis: Context): String {
+//  https://stackoverflow.com/questions/3424195/determining-if-an-android-device-is-rooted-programmatically
+//  https://github.com/scottyab/rootbeer/blob/master/README.md
+    val rootBeer = RootBeer(mythis)
+    if (rootBeer.isRooted()) {
+        //we found indication of root
+        textMessage.append(mythis.getString(R.string.isRooted))
+    } else {
+        //we didn't find indication of root
+        textMessage.append(mythis.getString(R.string.isNotRooted))
+    }
+    return textMessage.toString()
 }
 
 fun getBlueToothStatus(mythis: Context): String {
