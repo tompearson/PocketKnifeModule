@@ -35,15 +35,12 @@ fun methodWithPermissions(mythis: Context) =
         // Do the stuff with permissions safely
         // TODO fix the asynchronicity of this so that it blocks until permission is granted
         toast = Toast.makeText(mythis, mythis.getString(R.string.loc_granted), Toast.LENGTH_LONG)
-
-    toast.show()
-
+        toast.show()
     }
-// TODO add rooted device or not
-//  https://stackoverflow.com/questions/3424195/determining-if-an-android-device-is-rooted-programmatically
 
-//fun static isRooted {
-fun isItRooted(mythis: Context) : String {
+fun isItRooted(mythis: Context): String {
+//  https://stackoverflow.com/questions/3424195/determining-if-an-android-device-is-rooted-programmatically
+//  https://github.com/scottyab/rootbeer/blob/master/README.md
     val rootBeer = RootBeer(mythis)
     if (rootBeer.isRooted()) {
         //we found indication of root

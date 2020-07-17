@@ -1,6 +1,6 @@
 <resources>
     <string name="title_home"><b>Home</b></string>
-
+    <!--All features-->
     <string name="app_name">PocketKnifeModule1</string>
     <string name="no_gps">\nGPS is not enabled.</string>
     <string name="yes_gps">\nGPS is enabled.</string>
@@ -13,11 +13,21 @@
     <string name="mobile_connection">\nThe active connection is on </string>
     <string name="bluetooth">\nBluetooth enabled</string>
     <string name="no_bluetooth">\nBluetooth disabled</string>
+    <!--New features-->
 
-<!--    Maps feature-->
+    <!--    Life Cycle feature-->
+    <string name="onStop">\onStop detected</string>
+    <string name="onRestart">\nonRestart detected</string>
+    <string name="onResume">\nonResume detected</string>
+    <string name="onStart">\nonStart detected</string>
+    <string name="onPause">\nonPause detected</string>
+    <string name="onDestroy">\nonDestroy detected</string>
+
+    <!--        Maps feature-->
     <string name="title_activity_maps">Map</string>
     <string name="button_map_text">Map</string>
-<!--    Is it Rooted feature-->
+
+    <!--    Is it Rooted feature-->
     <string name="isRooted">\nThis device appears to have been rooted</string>
     <string name="isNotRooted">\nThis device appears to not have been rooted</string>
 
