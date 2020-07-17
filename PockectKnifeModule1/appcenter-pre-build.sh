@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 if [ -z "$VERSION_NAME" ]
 then
     echo "You need to define the VERSION_NAME variable in App Center Tom"
@@ -9,7 +10,7 @@ ANDROID_GRADLE_FILE=$APPCENTER_SOURCE_DIRECTORY/PocketKnifeModule1/build.gradle
 if [ -e "$ANDROID_GRADLE_FILE" ]
 then
     echo "Updating version name to $VERSION_NAME ($APPCENTER_BUILD_ID) in build.gradle"
-    sed -i '' 's/versionName "[0-9.]*"/versionName "'"$VERSION_NAME"'"/' $ANDROID_GRADLE_FILE
+    sed -i '' 's/versionName "[0-9.]*"/versionName "'$VERSION_NAME'"/' $ANDROID_GRADLE_FILE
 
     echo "File content:"
     cat $ANDROID_GRADLE_FILE
