@@ -17,5 +17,8 @@
 <!--    Maps feature-->
     <string name="title_activity_maps">Map</string>
     <string name="button_map_text">Map</string>
+<!--    Is it Rooted feature-->
+    <string name="isRooted">\nThis device appears to have been rooted</string>
+    <string name="isNotRooted">\nThis device appears to not have been rooted</string>
 
 </resources>

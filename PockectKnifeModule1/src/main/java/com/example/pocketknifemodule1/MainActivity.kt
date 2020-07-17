@@ -49,6 +49,8 @@ class MainActivity : AppCompatActivity() {
         textMessage.setText(getLocationStatus(this))
         textMessage.setText(getBlueToothStatus(this))
         textMessage.setText(getMACAddress(this))
+        textMessage.setText(isItRooted(this))
+
 
 //        Map feature
 
